@@ -14,15 +14,17 @@ h1 {
     font-weight: 400;
     font-size: 4em;
     margin-bottom: 0.5em;
+    color: #484848;
 }
 
 .wrapper {
     padding: 3em 0;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 80em;
 }
 
 .accordion li {
+    border-top: solid 0.1em #9f9f9f;
     list-style: none;
     width: 100%;
 }
@@ -46,16 +48,23 @@ h1 {
 }
 
 .accordion li {
-    color: blue;
+    color: #3b61df;
 }
 
 .accordion:hover li label span {
     font-size: 1.5em;
     visibility: visible;
+    transition: all 0.1s ease;
 }
 
 .accordion li label:has(+ input[type=radio]:checked) span {
     transform: rotate(45deg);
+    transition: all 0.1s ease;
+}
+
+.accordion li label:hover span {
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
 }
 
 .content {
@@ -67,9 +76,9 @@ h1 {
 }
 
 .content img {
-    height: 30em;
-    width: 30em;
-    margin: 0 auto;
+    height: 35em;
+    width: 35em;
+    margin: 0 auto 2em;
 }
 
 .accordion label + input[type=radio] {
@@ -77,22 +86,27 @@ h1 {
 }
 
 .accordion label + input[type=radio]:checked + .content {
-    max-height: 100%;
+    max-height: 40em;
 }
 
 .accordion label:hover + input[type=radio] + .content {
-    max-height: 100%;
+    max-height: 40em;
 }
 
 .accordion label + input[type=radio] + .content:hover {
-    max-height: 100%;
+    max-height: 40em;
+}
+
+.accordion li:has(> .content:hover) label span {
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
 }
 
 .accordion li label:has(+ input[type=radio]:checked) {
-    color: black;
+    color: #484848;
 }
 
 .accordion:hover li {
-    color: black;
+    color: #484848;
     cursor: pointer;
 }
