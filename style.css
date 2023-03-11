@@ -12,11 +12,12 @@ h1 {
     font-family: 'Fredoka One', cursive;
     font-style: regular;
     font-weight: 400;
-    font-size: 5em;
+    font-size: 4em;
+    margin-bottom: 0.5em;
 }
 
 .wrapper {
-    padding: 50px 0;
+    padding: 3em 0;
     margin: 0 auto;
     max-width: 800px;
 }
@@ -24,35 +25,74 @@ h1 {
 .accordion li {
     list-style: none;
     width: 100%;
-    margin-bottom: 1em;
-    padding: 1em 0;
 }
 
 .accordion li label {
-    padding: 1em 0;
+    padding: 0.5em 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-family: 'Fredoka One', cursive;
     font-style: regular;
     font-weight: 400;
-    font-size: 2.5em;
+    font-size: 2em;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .accordion li label span {
     font-size: 1.5em;
-    transform: rotate(90deg);
+    visibility: hidden;
+}
+
+.accordion li {
+    color: blue;
+}
+
+.accordion:hover li label span {
+    font-size: 1.5em;
+    visibility: visible;
+}
+
+.accordion li label:has(+ input[type=radio]:checked) span {
+    transform: rotate(45deg);
 }
 
 .content {
    display: flex; 
    justify-content: center;
    align-items: center;
+   max-height: 0;
+   overflow: hidden;
 }
 
 .content img {
     height: 30em;
     width: 30em;
     margin: 0 auto;
+}
+
+.accordion label + input[type=radio] {
+    display: none;
+}
+
+.accordion label + input[type=radio]:checked + .content {
+    max-height: 100%;
+}
+
+.accordion label:hover + input[type=radio] + .content {
+    max-height: 100%;
+}
+
+.accordion label + input[type=radio] + .content:hover {
+    max-height: 100%;
+}
+
+.accordion li label:has(+ input[type=radio]:checked) {
+    color: black;
+}
+
+.accordion:hover li {
+    color: black;
+    cursor: pointer;
 }
