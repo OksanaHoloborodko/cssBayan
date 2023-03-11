@@ -1,0 +1,132 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 1.5vh;
+}
+
+h1 {
+    font-family: 'Fredoka One', cursive;
+    font-style: regular;
+    font-weight: 400;
+    font-size: 4em;
+    margin-bottom: 0.5em;
+    color: #484848;
+}
+
+.wrapper {
+    padding: 3em 0;
+    margin: 0 auto;
+    max-width: 80em;
+}
+
+.accordion li {
+    border-top: solid 0.1em #9f9f9f;
+    list-style: none;
+    width: 100%;
+}
+
+.accordion li label {
+    padding: 0.5em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Fredoka One', cursive;
+    font-style: regular;
+    font-weight: 400;
+    font-size: 2em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.accordion li label span {
+    font-size: 1.5em;
+    visibility: hidden;
+}
+
+.accordion li {
+    color: #3b61df;
+}
+
+.accordion:hover li label span {
+    font-size: 1.5em;
+    visibility: visible;
+    transition: all 0.1s ease;
+}
+
+.accordion li label:has(+ input[type=radio]:checked) span {
+    transform: rotate(45deg);
+    transition: all 0.1s ease;
+}
+
+.accordion li label:hover span {
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.content {
+   display: flex; 
+   justify-content: center;
+   align-items: center;
+   max-height: 0;
+   overflow: hidden;
+}
+
+.content img {
+    height: 35em;
+    width: 35em;
+    margin: 0 auto 2em;
+}
+
+.accordion label + input[type=radio] {
+    display: none;
+}
+
+.accordion label + input[type=radio]:checked + .content {
+    max-height: 40em;
+}
+
+.accordion label:hover + input[type=radio] + .content {
+    max-height: 40em;
+}
+
+.accordion label + input[type=radio] + .content:hover {
+    max-height: 40em;
+}
+
+.accordion li:has(> .content:hover) label span {
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+.accordion li label:has(+ input[type=radio]:checked) {
+    color: #484848;
+}
+
+.accordion:hover li {
+    color: #484848;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 850px) {
+    body {
+        font-size: 1.3vh;
+    }
+
+    .wrapper {
+        max-width: 70em;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    body {
+        font-size: 0.9vh;
+    }
+
+    .wrapper {
+        max-width: 50em;
+    }
+}
